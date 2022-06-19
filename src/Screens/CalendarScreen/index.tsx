@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const SalesScreen: React.FC = () => {
+const CalendarScreen: React.FC = () => {
   return (
       <Container>
-          <h1>Sales</h1>
+          <h1>Calendar</h1>
       </Container>
   );
 }
 
-export default SalesScreen;
+export default CalendarScreen;

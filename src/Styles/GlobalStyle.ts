@@ -7,5 +7,6 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-size: calc(60% + .8vmin);
+        font-family: 'Nunito', sans-serif;
     }
 `;

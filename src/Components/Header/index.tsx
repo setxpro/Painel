@@ -30,7 +30,7 @@ const Header: React.FC<ToggleThemeProps> = ({toggleTheme}) => {
               <input 
                 type="text" 
                 name="search" 
-                placeholder="Buscar..." 
+                placeholder="Search..." 
               />
               <C.SearchIcon
                 onClick={handleOpenSearch}
