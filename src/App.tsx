@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
+import Layout from './Components/Layout';
+import Main from './Components/Main';
+import { SidebarProvider } from './Contexts/SidebarContext';
+import usePersistedState from './Hooks/usePersistedState';
+import dark from './Styles/theme/dark';
+import light from './Styles/theme/light';
 
-function App() {
+const App: React.FC = () => {
+
+  const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', light);
+
+  const toggleTheme = () => {
+    setTheme(theme.title === 'light' ? dark : light)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <SidebarProvider>
+        <Layout>
+          <Main toggleTheme={toggleTheme}/>
+        </Layout>
+      </SidebarProvider>
+    </ThemeProvider>
   );
 }
 
